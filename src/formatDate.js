@@ -30,12 +30,16 @@ function formatDate(date, fromFormat, toFormat) {
     year = year.toString().slice(-2);
   }
 
-  let newSeparator = '/';
+  let newSeparator = separator;
 
   for (const part of toFormat) {
     if (part.includes('-')) {
       newSeparator = '-';
       break;
+    }
+
+    if (part.includes('/')) {
+      newSeparator = '/';
     }
 
     if (part.includes('.')) {
